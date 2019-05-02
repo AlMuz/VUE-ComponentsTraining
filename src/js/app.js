@@ -7,9 +7,15 @@ Vue.component('card', {
         <div class="card-text">
           {{ content }}
         </div>
+        <button @click="deleteArticle" class="btn btn-danger btn-sm">Delete me</button>
       </div>
     </div>
-  `
+  `,
+  methods: {
+    deleteArticle() {
+      this.$emit('delete-article', this.title);
+    }
+  }
 })
 
 
@@ -32,5 +38,10 @@ new Vue({
     }
     ]
   },
+  methods: {
+    removeArticle(event) {
+      this.articles = this.articles.filter( article => article.title != event)
+    }
+  }
 
 });

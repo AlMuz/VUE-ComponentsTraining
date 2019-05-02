@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 offset-md-3">
-            <card v-for="article in articles" :title="article.title" :content="article.content"></card>
+            <card v-on:delete-article="removeArticle($event)" v-for="article in articles" :title="article.title" :content="article.content"></card>
           </div>
         </div>
       </div>
