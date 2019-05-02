@@ -1,5 +1,10 @@
 Vue.component('card', {
   props: ['title', 'content'],
+  data() {
+    return {
+        claps: 0
+    }
+  },
   template: `
     <div class="card">
       <div class="card-body">
@@ -7,6 +12,9 @@ Vue.component('card', {
         <div class="card-text">
           {{ content }}
         </div>
+        <div class="text-center text-muted display-4">{{ claps }}</div>
+
+        <button @click="clapForArticle" class="btn btn-info btn-sm">Clap for me</button>
         <button @click="deleteArticle" class="btn btn-danger btn-sm">Delete me</button>
       </div>
     </div>
@@ -14,6 +22,9 @@ Vue.component('card', {
   methods: {
     deleteArticle() {
       this.$emit('delete-article', this.title);
+    },
+    clapForArticle() {
+      this.claps++;
     }
   }
 })
