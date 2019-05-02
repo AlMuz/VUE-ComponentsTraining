@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 offset-md-3">
-            <card title="Title" content="123"></card>
+            <card v-for="article in articles" :title="article.title" :content="article.content"></card>
           </div>
         </div>
       </div>
